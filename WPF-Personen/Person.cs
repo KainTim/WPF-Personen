@@ -14,11 +14,11 @@ internal class Person
   public bool HasDriversLicense { get; set; }
 
   public override string ToString() => $"{Lastname} {Firstname} - {Birthdate} [{(IsStudent ? "Student" : "Teacher")}{(HasDriversLicense ? ", Driver" : "")}]";
-  public string ToCsvString() => $"{Firstname},{Lastname},{Birthdate},{IsStudent},{HasDriversLicense}";
+  public string ToCsvString() => $"{Firstname};{Lastname};{IsStudent};{HasDriversLicense};{Birthdate.ToShortDateString()}";
 
   public static Person Parse(string line)
   {
-    string[] parts = line.Split(',');
+    string[] parts = line.Split(';');
     return new Person()
     {
       Firstname = parts[0],
@@ -30,7 +30,7 @@ internal class Person
   }
   public static bool TryParse(string line, out Person? person)
   {
-    string[] parts = line.Split(',');
+    string[] parts = line.Split(';');
     try
     {
       person = new()

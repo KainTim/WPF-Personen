@@ -5,21 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Personen"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-  <Grid>
-    <Menu Height="24" VerticalAlignment="Top">
-      <MenuItem Header="abc" Height="24"/>
-      <MenuItem Header="abc" Height="24"/>
+        Loaded="Window_Loaded"
+        Title="MainWindow" Height="450" Width="733">
+    <Grid Margin="0,0,0,0">
+        <Menu Height="24" VerticalAlignment="Top">
 
-    </Menu>
-    
-        <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Margin="72,197,-72,-198">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+            <MenuItem Header="File" Height="24">
+                <MenuItem Click="MenuItem_Click_Save" Header="Save" Height="24"/>
+                <MenuItem Click="MenuItem_Click_Load" Header="Load" Height="24"/>
+                <MenuItem Click="MenuItem_Click_Exit" Header="Exit" Height="24"/>
+            </MenuItem>
+
+        </Menu>
+
+        <ListBox Name="ListBox" Width="350" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="362,50,5,5" HorizontalAlignment="Left" SelectionChanged="ListBox_SelectionChanged"/>
+        <Label Content="Firstname:" HorizontalAlignment="Left" Margin="50,50,0,0" VerticalAlignment="Top"/>
+        <Label Content="Lastname:" HorizontalAlignment="Left" Margin="50,125,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="firstName" HorizontalAlignment="Left" Margin="135,55,0,0" TextWrapping="Wrap" Width="120" Height="18" VerticalAlignment="Top"/>
+        <TextBox Name="lastName" HorizontalAlignment="Left" Margin="135,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
+        <GroupBox Header="Status" Width="100" Height="70" Margin="54,217,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <RadioButton Name="RBStudent"  Content="Student" Height="18"/>
+                <RadioButton Name="RBTeacher" Content="Teacher" Height="18"/>
+            </StackPanel>
+
+        </GroupBox>
+        <CheckBox Name="CbxDriversL" Content="Driver's License" HorizontalAlignment="Left" Margin="50,350,0,0" VerticalAlignment="Top"/>
+
+        <Button Content="Delete Selected" HorizontalAlignment="Left" Margin="210,225,0,0" VerticalAlignment="Top" Click="Delete_Click"/>
+        <Button Content="Add" Width="50" Height="50" HorizontalAlignment="Left" Margin="285,65,0,0" VerticalAlignment="Top" Click="Add_Click"/>
+        <Label Content="Birthday:" HorizontalAlignment="Left" Margin="50,165,0,0" VerticalAlignment="Top"/>
+        <DatePicker Name="Birthday" HorizontalAlignment="Left" Margin="135,168,0,0" VerticalAlignment="Top"/>
+
 
     </Grid>
 </Window>
