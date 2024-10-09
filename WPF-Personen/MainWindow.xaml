@@ -1,0 +1,25 @@
+﻿<Window x:Class="WPF_Personen.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Personen"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+  <Grid>
+    <Menu Height="24" VerticalAlignment="Top">
+      <MenuItem Header="abc" Height="24"/>
+      <MenuItem Header="abc" Height="24"/>
+
+    </Menu>
+    
+        <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Margin="72,197,-72,-198">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Window>
